@@ -15,6 +15,17 @@ function CreateTempDir
    $tmpDir
 }
 
+# Checkout gh-pages branch to temp folder
+$ghpagesRepoFolder = CreateTempDir
+if (-not (Test-Path -Path $ghpagesRepoFolder))
+{
+    Write-Host "Failed to create temporary folder: $ghpagesRepoFolder"
+    exit -1
+}
+
+Write-Host "Temporary folder for gh-pages repository: $ghpagesRepoFolder"
+
+
 # Publish the documentation to the repository
 git add README.md
 git commit -m "Updated the documentation"
@@ -30,7 +41,7 @@ if ($remoteGitRepositoryUrl -eq $null)
 
 $currentGitBranch = (git symbolic-ref HEAD).split('/')[-1]
 
-# Ensure the creation of a g-=page branch for the documentation pages
+# Ensure the creation of a gh-page branch for the documentation pages
 git ls-remote --exit-code . origin/gh-pages
 if (-not $?)
 {
@@ -38,19 +49,14 @@ if (-not $?)
     git push origin origin:refs/heads/gh-pages
 }
 
-# Checkout gh-pages branch to temp folder
-$ghpagesRepoFolder = CreateTempDir
-if (-not (Test-Path -Path $ghpagesRepoFolder))
-{
-    Write-Host "Failed to xcreate temporary folder: $ghpagesRepoFolder"
-    exit -1
-}
-
-Write-Host "Temporary folder for gh-pages repository: $ghpagesRepoFolder"
-git clone $remoteGitRepositoryUrl --branch gh-pages --single-branch $ghpagesRepoFolder
 Push-Location $ghpagesRepoFolder
+Write-Host "Changed location to temporary folder: $ghpagesRepoFolder"
 
-# Cleanup all files except the index.html file
+Write-Host "Cloning gh-pages branch from $remoteGitRepositoryUrl to temporary folder"
+git clone $remoteGitRepositoryUrl --branch gh-pages --single-branch $ghpagesRepoFolder
+
+Write-Host "Cleanup all files except the index.html file"
+
 $restoreIndexHtml = -not (Test-Path -Path "index.html")
 git rm -rf *
 if ($restoreIndexHtml)
