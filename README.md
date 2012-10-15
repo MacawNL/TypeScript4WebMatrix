@@ -15,5 +15,6 @@ The TypeScript4WebMatrix extension provides compilation support for TypeScript w
 * Compile all TypeScript files in the workspace
 * Compile all TypeScript files in a folder
 * Compile a TypeScript file
+* Update the TypeScript software
 
 
