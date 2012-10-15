@@ -19,8 +19,7 @@ function CreateTempDir
 $ghpagesRepoFolder = CreateTempDir
 if (-not (Test-Path -Path $ghpagesRepoFolder))
 {
-    Write-Host "Failed to create temporary folder: $ghpagesRepoFolder"
-    exit -1
+    Throw "Failed to create temporary folder: $ghpagesRepoFolder"
 }
 
 Write-Host "Temporary folder for gh-pages repository: $ghpagesRepoFolder"
@@ -35,8 +34,7 @@ git push
 $remoteGitRepositoryUrl = git config --get remote.origin.url
 if ($remoteGitRepositoryUrl -eq $null)
 {
-    Write-Host "Execute this script within the folder of a GIT repository."
-    exit -1
+    Throw "Execute this script within the folder of a GIT repository."
 }
 
 $currentGitBranch = (git symbolic-ref HEAD).split('/')[-1]
