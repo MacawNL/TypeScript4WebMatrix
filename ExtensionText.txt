@@ -1,0 +1,12 @@
+Extension Id: TypeScript4WebMatrix
+Version: 1.7.0.0
+Title: TypeScript Tools
+Description:
+This extension provides compilation of TypeScript files in a web site. TypeScript is a language for application-scale JavaScript. TypeScript adds optional types, classes, and modules to JavaScript. Compilation can be done for all TypeScript files, TypeScript files in a folder or a single TypeScript file. The compilation provides an output window and error reporting.
+Summary: TypeScript compilation for WebMatrix with output window and error reporting.
+Authors: Serge van den Oever [Macaw]
+Project URL: http://macawnl.github.com/TypeScript4WebMatrix/
+License URL: http://macawnl.github.com/TypeScript4WebMatrix/
+Tags: TypeScript, WebMatrix, Compiler 
+
+
