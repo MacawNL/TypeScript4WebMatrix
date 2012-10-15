@@ -44,7 +44,7 @@ git ls-remote --exit-code . origin/gh-pages
 if (-not $?)
 {
     # Repository does not exist yet, create one from the current one
-    git push origin origin:refs/heads/gh-pages
+    git push origin HEAD:refs/heads/gh-pages
 }
 
 Push-Location $ghpagesRepoFolder
