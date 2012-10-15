@@ -52,6 +52,7 @@ Write-Host "Changed location to temporary folder: $ghpagesRepoFolder"
 
 Write-Host "Cloning gh-pages branch from $remoteGitRepositoryUrl to temporary folder"
 git clone $remoteGitRepositoryUrl --branch gh-pages --single-branch $ghpagesRepoFolder
+git checkout --orphan gh-pages
 
 Write-Host "Cleanup all files except the index.html file"
 
