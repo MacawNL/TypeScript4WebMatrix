@@ -1,4 +1,4 @@
-WebMatrix Extension:
+WebMatrix Extension: http://extensions.webmatrix.com/packages/TypeScript4WebMatrix
 
 DocumentUp version of the documentation: http://macawnl.github.com/TypeScript4WebMatrix/
 
