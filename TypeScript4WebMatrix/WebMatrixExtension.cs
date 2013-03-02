@@ -1,18 +1,14 @@
-﻿using System;
-using System.Linq;
+﻿using Microsoft.WebMatrix.Extensibility;
+using Microsoft.WebMatrix.Extensibility.Editor;
+using System;
 using System.ComponentModel.Composition;
 using System.IO;
-using System.Text.RegularExpressions;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using Microsoft.WebMatrix.Extensibility;
-using Microsoft.WebMatrix.Extensibility.Editor;
 
 namespace TypeScript4WebMatrix
 {
-    /// <summary>
-    /// A sample WebMatrix extension.
-    /// </summary>
     [Export(typeof (Extension))]
     public class TypeScript4WebMatrix : Extension
     {
